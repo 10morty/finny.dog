@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Info Website</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>ASDF</h1>
+
+    <div class="event-section">
+      <h2>Upcoming Events</h2>
+      <div id="upcoming-events" class="event-list"></div>
+    </div>
+
+    <div class="event-section">
+      <h2>Past Events</h2>
+      <div id="past-events" class="event-list"></div>
+    </div>
+  </main>
+
+  <script>
+    function formatDateRange(startStr, endStr) {
+      const start = new Date(startStr);
+      const end = new Date(endStr);
+
+      const opts = { year: 'numeric', month: 'short', day: 'numeric' };
+
+      if (start.toDateString() === end.toDateString()) {
+        return start.toLocaleDateString(undefined, opts);
+      }
+
+      if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()) {
+        return `${start.getDate()}–${end.getDate()} ${start.toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}`;
+      }
+
+      if (start.getFullYear() === end.getFullYear()) {
+        return `${start.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} – ${end.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`;
+      }
+
+      return `${start.toLocaleDateString(undefined, opts)} – ${end.toLocaleDateString(undefined, opts)}`;
+    }
+
+    function createCard(event) {
+      return `
+        <div class="event-card">
+          <div class="event-logo">
+            <img src="${event.image}" alt="${event.title}">
+          </div>
+
+          <div class="event-info">
+            <div class="event-date">
+              ${formatDateRange(event.start, event.end)}
+            </div>
+            <div class="event-title">${event.title}</div>
+            <div class="event-location">${event.location}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadEvents() {
+      const res = await fetch("events.json");
+      const events = await res.json();
+      const now = new Date();
+
+      const upcoming = [];
+      const past = [];
+
+      events.forEach(event => {
+        const startDate = new Date(event.start);
+        const endDate = new Date(event.end);
+
+        const data = { ...event, startDate };
+
+        if (endDate >= now) upcoming.push(data);
+        else past.push(data);
+      });
+
+      upcoming.sort((a, b) => a.startDate - b.startDate);
+      past.sort((a, b) => b.startDate - a.startDate);
+
+      // ================= UPCOMING =================
+      const upcomingContainer = document.getElementById("upcoming-events");
+
+      if (upcoming.length <= 3) {
+        upcomingContainer.innerHTML = upcoming.map(createCard).join("");
+      } else {
+        upcomingContainer.innerHTML =
+          upcoming.slice(0, 3).map(createCard).join("") +
+          upcoming.slice(3).map((e, i) =>
+            `<div class="extra-upcoming hidden">${createCard(e)}</div>`
+          ).join("") +
+          `<button id="toggle-upcoming" class="more-button">
+            Show More (${upcoming.length - 3})
+          </button>`;
+
+        const btn = document.getElementById("toggle-upcoming");
+        const extras = document.querySelectorAll(".extra-upcoming");
+
+        btn.addEventListener("click", () => {
+          const hidden = extras[0].classList.contains("hidden");
+
+          extras.forEach(el => el.classList.toggle("hidden"));
+
+          btn.textContent = hidden
+            ? "Show Less"
+            : `Show More (${upcoming.length - 3})`;
+        });
+      }
+
+      // ================= PAST =================
+      const pastContainer = document.getElementById("past-events");
+
+      if (past.length <= 3) {
+        pastContainer.innerHTML = past.map(createCard).join("");
+      } else {
+        pastContainer.innerHTML =
+          past.slice(0, 3).map(createCard).join("") +
+          past.slice(3).map((e) =>
+            `<div class="extra-past hidden">${createCard(e)}</div>`
+          ).join("") +
+          `<button id="toggle-past" class="more-button">
+            Show More (${past.length - 3})
+          </button>`;
+
+        const btn = document.getElementById("toggle-past");
+        const extras = document.querySelectorAll(".extra-past");
+
+        btn.addEventListener("click", () => {
+          const hidden = extras[0].classList.contains("hidden");
+
+          extras.forEach(el => el.classList.toggle("hidden"));
+
+          btn.textContent = hidden
+            ? "Show Less"
+            : `Show More (${past.length - 3})`;
+        });
+      }
+    }
+
+    loadEvents();
+  </script>
+  <footer>
+    &copy; <script>document.write(new Date().getFullYear())</script> – Made with AI
+  </footer>
+</body>
+</html>
