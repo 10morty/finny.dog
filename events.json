@@ -1,0 +1,163 @@
+[
+  {
+    "title": "Woof & Wander",
+    "start": "2025-02-01",
+    "end": "2025-02-01",
+    "location": "Maastricht, Netherlands 🇳🇱",
+    "image": "images/Woof & Wander.jpg"
+  },
+  {
+    "title": "Puppy Unleashed",
+    "start": "2025-03-09",
+    "end": "2025-03-09",
+    "location": "Amsterdam, Netherlands 🇳🇱",
+    "image": "images/Puppy Unleashed.png"
+  },
+  {
+    "title": "Bark & Play",
+    "start": "2025-07-05",
+    "end": "2025-07-05",
+    "location": "Nijmegen, Netherlands 🇳🇱",
+    "image": "images/Bark & Play.jpg"
+  },
+  {
+    "title": "Bark & Play",
+    "start": "2026-01-03",
+    "end": "2026-01-03",
+    "location": "Nijmegen, Netherlands 🇳🇱",
+    "image": "images/Bark & Play.jpg"
+  },
+  {
+    "title": "XGear Winter",
+    "start": "2026-01-16",
+    "end": "2026-01-18",
+    "location": "Herten, Germany 🇩🇪",
+    "image": "images/XGear Winter.png"
+  },
+  {
+    "title": "Fetish Social Nijmegen",
+    "start": "2026-02-14",
+    "end": "2026-02-14",
+    "location": "Nijmegen, Netherlands 🇳🇱",
+    "image": "images/Fetish Social Nijmegen.png"
+  },
+  {
+    "title": "NordicFuzzCon - Cirque du Nord",
+    "start": "2026-02-18",
+    "end": "2026-02-22",
+    "location": "Malmö, Sweden 🇸🇪",
+    "image": "images/NordicFuzzCon - Cirque du Nord.png"
+  },
+  {
+    "title": "Darklands",
+    "start": "2026-03-04",
+    "end": "2026-03-08",
+    "location": "Antwerp, Belgium 🇧🇪",
+    "image": "images/Darklands.png"
+  },
+  {
+    "title": "Bark & Play",
+    "start": "2026-03-14",
+    "end": "2026-03-14",
+    "location": "Nijmegen, Netherlands 🇳🇱",
+    "image": "images/Bark & Play.jpg"
+  },
+  {
+    "title": "Fetish Social Leiden",
+    "start": "2026-03-22",
+    "end": "2026-03-22",
+    "location": "Leiden, Netherlands 🇳🇱",
+    "image": "images/Fetish Social Leiden.png"
+  },
+  {
+    "title": "2dance",
+    "start": "2026-04-10",
+    "end": "2026-04-12",
+    "location": "Hamm, Germany 🇩🇪",
+    "image": "images/2dance.jpg"
+  },
+  {
+    "title": "Woof & Wander",
+    "start": "2026-04-18",
+    "end": "2026-04-18",
+    "location": "Maastricht, Netherlands 🇳🇱",
+    "image": "images/Woof & Wander.jpg"
+  },
+  {
+    "title": "XGear Pride",
+    "start": "2026-05-22",
+    "end": "2026-05-24",
+    "location": "Herten, Germany 🇩🇪",
+    "image": "images/XGear Pride.png"
+  },
+  {
+    "title": "Gearfactory",
+    "start": "2026-05-30",
+    "end": "2026-05-30",
+    "location": "Venlo, Netherlands 🇳🇱",
+    "image": "images/Gearfactory.jpg"
+  },
+  {
+    "title": "Gear'n'Dance",
+    "start": "2026-06-06",
+    "end": "2026-06-06",
+    "location": "Bottrop, Germany 🇩🇪",
+    "image": "images/Gear'n'Dance.jpg"
+  },
+  {
+    "title": "MancFurs",
+    "start": "2026-06-13",
+    "end": "2026-06-13",
+    "location": "Manchester, United Kingdom 🇬🇧",
+    "image": "images/MancFurs.png"
+  },
+  {
+    "title": "AnimalZ",
+    "start": "2026-06-12",
+    "end": "2026-06-14",
+    "location": "Manchester, United Kingdom 🇬🇧",
+    "image": "images/AnimalZ.png"
+  },
+  {
+    "title": "MoG Gearrave",
+    "start": "2026-07-17",
+    "end": "2026-07-19",
+    "location": "Solothurn, Switzerland 🇨🇭",
+    "image": "images/MoG Gearrave.jpg"
+  },
+  {
+    "title": "AnimalZ",
+    "start": "2026-08-07",
+    "end": "2026-08-09",
+    "location": "Manchester, United Kingdom 🇬🇧",
+    "image": "images/AnimalZ.png"
+  },
+  {
+    "title": "MoG2K",
+    "start": "2026-09-03",
+    "end": "2026-09-04",
+    "location": "???, Germany 🇩🇪",
+    "image": "images/MoG2K.png"
+  },
+  {
+    "title": "Gear'n'Dance",
+    "start": "2026-10-17",
+    "end": "2026-10-17",
+    "location": "Bottrop, Germany 🇩🇪",
+    "image": "images/Gear'n'Dance.jpg"
+  },
+  {
+    "title": "Darklands",
+    "start": "2027-02-17",
+    "end": "2027-02-21",
+    "location": "Antwerp, Belgium 🇧🇪",
+    "image": "images/Darklands.png"
+  },
+  {
+    "title": "NordicFuzzCon",
+    "start": "2027-02-24",
+    "end": "2027-02-28",
+    "location": "Malmö, Sweden 🇸🇪",
+    "image": "images/NordicFuzzCon.png"
+  }
+]
