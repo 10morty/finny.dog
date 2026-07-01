@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Info Website</title>
+  <title>Wraff Wraff~</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
@@ -15,7 +16,9 @@
 </head>
 <body>
   <main>
-    <h1>ASDF</h1>
+    <h1>Event Schedule</h1>
+    <h4>Want to meet me?<br>Here you can find all the events i will be attending.
+    </h4>
 
     <div class="event-section">
       <h2>Upcoming Events</h2>
@@ -59,26 +62,27 @@
 
           <div class="event-info">
             <div class="event-date">
-              ${formatDateRange(event.start, event.end)}
+              🕑${formatDateRange(event.start, event.end)}
             </div>
             <div class="event-title">${event.title}</div>
-            <div class="event-location">${event.location}</div>
+            <div class="event-location">📍${event.location}</div>
           </div>
         </div>
       `;
     }
 
     async function loadEvents() {
-      const res = await fetch("events.json");
-      const events = await res.json();
+      const res = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQO8fE_rxMOnosorZSTsmhScq8BLX38AQV4DXOJ5aahu2Bt9a8vjbEotgFhDx4iFe0BgCt9sL3c741O/pub?gid=0&single=true&output=csv");
+      const csv = await res.text();
+      const events = csvToJSON(csv);
       const now = new Date();
 
       const upcoming = [];
       const past = [];
 
       events.forEach(event => {
-        const startDate = new Date(event.start);
-        const endDate = new Date(event.end);
+        const startDate = new Date(event.start.replaceAll("/", "-"));
+        const endDate = new Date(event.end.replaceAll("/", "-"));
 
         const data = { ...event, startDate };
 
@@ -147,9 +151,72 @@
         });
       }
     }
+    function csvToJSON(csv) {
+      const lines = csv.trim().split("\n");
+
+      const headers = parseCSVLine(lines[0]);
+
+      return lines.slice(1).map(line => {
+        const values = parseCSVLine(line);
+
+        let obj = {};
+        headers.forEach((h, i) => {
+          obj[h.trim()] = values[i] ?? "";
+        });
+
+        return obj;
+      });
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+
+        if (char === '"' && line[i - 1] !== "\\") {
+          inQuotes = !inQuotes;
+        } else if (char === "," && !inQuotes) {
+          result.push(current);
+          current = "";
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current);
+
+      return result.map(v =>
+        v.trim().replace(/^"|"$/g, "")
+      );
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const backToTop = document.getElementById("backToTop");
+
+      if (!backToTop) return; // prevents breaking everything
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    });
 
     loadEvents();
   </script>
+  <button id="backToTop" class="back-to-top">🔼</button>
   <footer>
     &copy; <script>document.write(new Date().getFullYear())</script> – Made with AI
   </footer>
