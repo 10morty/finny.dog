@@ -31,8 +31,14 @@ main {
 
 h1 {
     text-align: center;
-    font-size: 2.6rem;
+    font-size: 2.8rem;
     margin-bottom: 10px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
 main p {
@@ -47,7 +53,7 @@ main p {
 
 .event-section h2 {
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     font-weight: 300;
     margin-bottom: 30px;
 }
@@ -208,4 +214,37 @@ footer {
     display: none;
     flex-direction: column;
     gap: 22px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #222;
+  color: white;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
 }
