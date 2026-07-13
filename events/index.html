@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3H7BHY5RK7');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events!</title>
+    <link rel="icon" href="../images/icon.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="/" class="back-home-btn">⬅️ Go Back</a>
+      <h1>Event Schedule</h1>
+      <h4>Want to meet me?<br>Here you can find all the events i will be attending.
+      </h4>
+
+      <div class="event-section">
+        <h2>Upcoming Events</h2>
+        <div id="upcoming-events" class="event-list"></div>
+      </div>
+
+      <div class="event-section">
+        <h2>Past Events</h2>
+        <div id="past-events" class="event-list"></div>
+      </div>
+    </main>
+
+    <button id="backToTop" class="back-to-top">🔼</button>
+
+    <script src="../js/javascript.js"></script>
+
+    <script>
+
+      async function loadEventsPage(){
+
+      const {upcoming,past}=await getEvents();
+
+
+      document.getElementById("upcoming-events").innerHTML =
+      renderEvents(upcoming,"upcoming");
+
+
+      document.getElementById("past-events").innerHTML =
+      renderEvents(past,"past");
+
+
+      }
+
+
+      function renderEvents(events,type){
+
+      let html="";
+
+
+      events.forEach((event,index)=>{
+
+      if(index>=3){
+
+      html += createCard(
+      event,
+      `hidden extra-${type}`
+      );
+
+      }
+      else{
+      html += createCard(event);
+      }
+      });
+      if(events.length>3){
+
+      html += `
+      <button class="more-button" onclick="toggleMore('${type}',${events.length-3},this)">
+      Show More (${events.length-3})
+      </button>
+      `;
+
+      }
+      return html;
+      }
+
+      function toggleMore(type,count,button){
+      document
+      .querySelectorAll(".extra-"+type)
+      .forEach(card=>{
+      card.classList.toggle("hidden");
+      });
+
+      button.textContent =
+      button.textContent.includes("More")
+      ? "Show Less"
+      : `Show More (${count})`;
+      }
+
+      loadEventsPage();
+
+      const backToTop = document.getElementById("backToTop");
+
+        if (backToTop) {
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add("show");
+                } else {
+                    backToTop.classList.remove("show");
+                }
+            });
+
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+          }
+    </script>
+    <footer>
+      &copy; <script>document.write(new Date().getFullYear())</script> – Made with AI
+    </footer>
+  </body>
+</html>

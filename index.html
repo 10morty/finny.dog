@@ -1,233 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <head>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'G-3H7BHY5RK7');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wraff Wraff~</title>
-  <link rel="icon" href="images/icon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        gtag('config', 'G-3H7BHY5RK7');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pup_finny</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </head>
 
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Event Schedule</h1>
-    <h4>Want to meet me?<br>Here you can find all the events i will be attending.
-    </h4>
+    <body class="home-page">
+    <div class="card">
+        <img class="avatar" src="images/MainIcon.jpg">
+        <h1>Finny</h1>
+        <pro>he/him</pro>
 
-    <div class="event-section">
-      <h2>Upcoming Events</h2>
-      <div id="upcoming-events" class="event-list"></div>
-    </div>
+        <h2>Wraff Wraff🐾</h2>
 
-    <div class="event-section">
-      <h2>Past Events</h2>
-      <div id="past-events" class="event-list"></div>
-    </div>
-  </main>
+        <p>Heyo, I am Finny! Currently a <span id="age"></span> year old doggy.<br>ASDF</p>
 
-  <script>
-    function formatDateRange(startStr, endStr) {
-      const start = new Date(startStr);
-      const end = new Date(endStr);
-
-      const opts = { year: 'numeric', month: 'short', day: 'numeric' };
-
-      if (start.toDateString() === end.toDateString()) {
-        return start.toLocaleDateString(undefined, opts);
-      }
-
-      if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()) {
-        return `${start.getDate()}–${end.getDate()} ${start.toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}`;
-      }
-
-      if (start.getFullYear() === end.getFullYear()) {
-        return `${start.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} – ${end.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`;
-      }
-
-      return `${start.toLocaleDateString(undefined, opts)} – ${end.toLocaleDateString(undefined, opts)}`;
-    }
-
-    function createCard(event) {
-      return `
-        <div class="event-card">
-          <div class="event-logo">
-            <img src="${event.image}" alt="${event.title}">
-          </div>
-
-          <div class="event-info">
-            <div class="event-date">
-              🕑 ${formatDateRange(event.start, event.end)}
-            </div>
-            <div class="event-title">${event.title}</div>
-            <div class="event-location">📍${event.location}</div>
-          </div>
+        <h2>📅Next Event</h2>
+        
+        <div id="next-event">
+            <div class="event-card loading-card"></div>
         </div>
-      `;
-    }
+        <div class="event-button-container">
+            <a href="/events" class="show-events-btn">Show all events ➡️</a>
+        </div>
 
-    async function loadEvents() {
-      const res = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQO8fE_rxMOnosorZSTsmhScq8BLX38AQV4DXOJ5aahu2Bt9a8vjbEotgFhDx4iFe0BgCt9sL3c741O/pub?gid=0&single=true&output=csv");
-      const csv = await res.text();
-      const events = csvToJSON(csv);
-      const now = new Date();
+        <h2>🔗Socials</h2>
 
-      const upcoming = [];
-      const past = [];
+        <div class="socials">
+            <a href="https://x.com/Finny_AD" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/pup_finny/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://t.me/Finny_the_Husky" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" target="_blank"><img src="images/tellonym.png" class="social-icon"></a>
+        </div>
 
-      events.forEach(event => {
-        const startDate = new Date(event.start.replaceAll("/", "-"));
-        const endDate = new Date(event.end.replaceAll("/", "-"));
-
-        const data = { ...event, startDate };
-
-        if (endDate >= now) upcoming.push(data);
-        else past.push(data);
-      });
-
-      upcoming.sort((a, b) => a.startDate - b.startDate);
-      past.sort((a, b) => b.startDate - a.startDate);
-
-      // ================= UPCOMING =================
-      const upcomingContainer = document.getElementById("upcoming-events");
-
-      if (upcoming.length <= 3) {
-        upcomingContainer.innerHTML = upcoming.map(createCard).join("");
-      } else {
-        upcomingContainer.innerHTML =
-          upcoming.slice(0, 3).map(createCard).join("") +
-          upcoming.slice(3).map((e, i) =>
-            `<div class="extra-upcoming hidden">${createCard(e)}</div>`
-          ).join("") +
-          `<button id="toggle-upcoming" class="more-button">
-            Show More (${upcoming.length - 3})
-          </button>`;
-
-        const btn = document.getElementById("toggle-upcoming");
-        const extras = document.querySelectorAll(".extra-upcoming");
-
-        btn.addEventListener("click", () => {
-          const hidden = extras[0].classList.contains("hidden");
-
-          extras.forEach(el => el.classList.toggle("hidden"));
-
-          btn.textContent = hidden
-            ? "Show Less"
-            : `Show More (${upcoming.length - 3})`;
-        });
-      }
-
-      // ================= PAST =================
-      const pastContainer = document.getElementById("past-events");
-
-      if (past.length <= 3) {
-        pastContainer.innerHTML = past.map(createCard).join("");
-      } else {
-        pastContainer.innerHTML =
-          past.slice(0, 3).map(createCard).join("") +
-          past.slice(3).map((e) =>
-            `<div class="extra-past hidden">${createCard(e)}</div>`
-          ).join("") +
-          `<button id="toggle-past" class="more-button">
-            Show More (${past.length - 3})
-          </button>`;
-
-        const btn = document.getElementById("toggle-past");
-        const extras = document.querySelectorAll(".extra-past");
-
-        btn.addEventListener("click", () => {
-          const hidden = extras[0].classList.contains("hidden");
-
-          extras.forEach(el => el.classList.toggle("hidden"));
-
-          btn.textContent = hidden
-            ? "Show Less"
-            : `Show More (${past.length - 3})`;
-        });
-      }
-    }
-    function csvToJSON(csv) {
-      const lines = csv.trim().split("\n");
-
-      const headers = parseCSVLine(lines[0]);
-
-      return lines.slice(1).map(line => {
-        const values = parseCSVLine(line);
-
-        let obj = {};
-        headers.forEach((h, i) => {
-          obj[h.trim()] = values[i] ?? "";
-        });
-
-        return obj;
-      });
-    }
-
-    function parseCSVLine(line) {
-      const result = [];
-      let current = "";
-      let inQuotes = false;
-
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-
-        if (char === '"' && line[i - 1] !== "\\") {
-          inQuotes = !inQuotes;
-        } else if (char === "," && !inQuotes) {
-          result.push(current);
-          current = "";
-        } else {
-          current += char;
+    </div>
+    <script src="/js/javascript.js"></script>
+    <script>
+        async function loadNextEvent(){
+        const {upcoming}=await getEvents();
+        const container=document.getElementById("next-event");
+        if(!container || !upcoming.length) return;
+        container.innerHTML=createCard(upcoming[0]);
         }
-      }
 
-      result.push(current);
-
-      return result.map(v =>
-        v.trim().replace(/^"|"$/g, "")
-      );
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const backToTop = document.getElementById("backToTop");
-
-      if (!backToTop) return; // prevents breaking everything
-
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
-    });
-
-    loadEvents();
-  </script>
-  <button id="backToTop" class="back-to-top">🔼</button>
-  <footer>
-    &copy; <script>document.write(new Date().getFullYear())</script> – Made with AI
-  </footer>
-</body>
+        loadNextEvent();
+    </script>
+    </body>
 </html>
