@@ -44,7 +44,69 @@
             <a href="https://x.com/Finny_AD" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.instagram.com/pup_finny/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://t.me/Finny_the_Husky" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#" target="_blank"><img src="images/tellonym.png" class="social-icon"></a>
+            <a href="<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3H7BHY5RK7');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pup_finny</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </head>
+
+    <body class="home-page">
+    <div class="card">
+        <img class="avatar" src="images/MainIcon.jpg">
+        <h1>Finny</h1>
+        <pro>he/him</pro>
+
+        <h2>Wraff Wraff🐾</h2>
+
+        <p>Heyo, I am Finny! Currently a <span id="age"></span> year old doggy.<br>ASDF</p>
+
+        <h2>📅Next Event</h2>
+        
+        <div id="next-event">
+            <div class="event-card loading-card"></div>
+        </div>
+        <div class="event-button-container">
+            <a href="/events" class="show-events-btn">Show all events ➡️</a>
+        </div>
+
+        <h2>🔗Socials</h2>
+
+        <div class="socials">
+            <a href="https://x.com/Finny_AD" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/pup_finny/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://t.me/Finny_the_Husky" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://tellonym.me/finny.secrets/dontthink" target="_blank"><img src="images/tellonym.png" class="social-icon"></a>
+        </div>
+
+    </div>
+    <script src="/js/javascript.js"></script>
+    <script>
+        async function loadNextEvent(){
+        const {upcoming}=await getEvents();
+        const container=document.getElementById("next-event");
+        if(!container || !upcoming.length) return;
+        container.innerHTML=createCard(upcoming[0]);
+        }
+
+        loadNextEvent();
+    </script>
+    </body>
+</html>" target="_blank"><img src="images/tellonym.png" class="social-icon"></a>
         </div>
 
     </div>
