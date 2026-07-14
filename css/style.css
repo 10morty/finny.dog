@@ -321,11 +321,13 @@ main p {
 
     .event-title {
         font-size: 1.6rem;
+        text-align: center;
     }
 
     .event-date,
     .event-location {
         font-size: 1rem;
+        text-align: center;
     }
 
     .event-button-container {
