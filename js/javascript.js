@@ -2,10 +2,17 @@ const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQO8fE_rxMOnos
 
 document.querySelectorAll('.socials a[data-social]').forEach(link => {
     link.addEventListener('click', function () {
-        gtag('event', 'social_click', {
-            platform: this.dataset.social,
-            link_url: this.href
-        });
+        console.log('Social click:', this.dataset.social);
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'social_click', {
+                platform: this.dataset.social,
+                link_url: this.href
+            });
+            console.log('GA4 event sent');
+        } else {
+            console.error('Google Analytics gtag is not loaded');
+        }
     });
 });
 
