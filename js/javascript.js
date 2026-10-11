@@ -1,6 +1,6 @@
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQO8fE_rxMOnosorZSTsmhScq8BLX38AQV4DXOJ5aahu2Bt9a8vjbEotgFhDx4iFe0BgCt9sL3c741O/pub?gid=0&single=true&output=csv";
 
-document.querySelectorAll('[data-social]').forEach(link => {
+document.querySelectorAll('.socials a[data-social]').forEach(link => {
     link.addEventListener('click', function () {
         gtag('event', 'social_click', {
             platform: this.dataset.social,
