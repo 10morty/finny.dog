@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@pup_finny</title>
+  <meta name="description" content="Heyo, I'm Finny! I love traveling, being in nature, and finding people at events.">
+  <meta property="og:title" content="Finny 🩷✨">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Heyo, I am Finny :3">
+  <meta property="og:url" content="https://finny.dog/">
+  <meta property="og:site_name" content="@pup_finny">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-3H7BHY5RK7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3H7BHY5RK7');
+  </script> -->
+</head>
+<body class="home-page">
+  <main class="hero" aria-label="Finny homepage">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
 
-        gtag('config', 'G-3H7BHY5RK7');
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@pup_finny</title>
+    <header class="brand">
+      <h1>Finny</h1>
+      <div class="brand-date">16 / 11 / 2024 <span aria-hidden="true">🎈</span></div>
+    </header>
 
-    <meta property="og:title" content="Finny 🩷✨">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Heyo, I am Finny :3">
-    <meta property="og:url" content="https://finny.dog/">
-    <meta property="og:site_name" content="@pup_finny">
+    <section class="intro" aria-labelledby="intro-title">
+      <h2 id="intro-title">Heyo!</h2>
+      <p>I’m Finny, <span id="age">21</span> from the Netherlands✌️<br>
+        Love traveling and being out in nature🌿<br>
+        Come say hi if you see me at an event!<br>
+        The next one is listed below 👀</p>
+    </section>
 
-    <link rel="icon" href="images/icon.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    </head>
+    <div class="social-sidebar">
+    <a href="https://www.instagram.com/pup_finny/" click-statistics="instagram" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram" data-tooltip="Instagram"> <i class="fa-brands fa-instagram"></i> </a>
+    <a href="https://t.me/Finny_the_Husky" click-statistics="telegram" target="_blank" rel="noopener noreferrer" class="social-link telegram" aria-label="Telegram" data-tooltip="Telegram"> <i class="fa-brands fa-telegram"></i> </a>
+    <a href="https://x.com/Finny_AD" click-statistics="x" target="_blank" rel="noopener noreferrer" class="social-link x-twitter" aria-label="X" data-tooltip="X / Twitter"> <i class="fa-brands fa-x-twitter"></i> </a>
+    <a href="https://bsky.app/profile/finny.dog" click-statistics="bluesky" target="_blank" rel="noopener noreferrer" class="social-link bluesky" aria-label="Bluesky" data-tooltip="Bluesky"> <i class="fa-brands fa-bluesky"></i> </a>
+    <a href="https://app.kinkverse.org/@finny.kinkverse.app" click-statistics="kinkverse" target="_blank" rel="noopener noreferrer" class="social-link kinkverse" aria-label="Kinkverse" data-tooltip="Kinkverse"> <img src="images/kinkverse.png" alt="Kinkverse"> </a>
+  </div>
 
-    <body class="home-page">
-    <div class="card">
-        <img class="avatar" src="../images/MainIcon.JPG">
-        <h1>Finny</h1>
-        <pro>he/him</pro>
-
-        <h2>Wraff Wraff🐾</h2>
-
-        <p>Heyo, I'm Finny! <span id="age"></span> and single 🙃<br>I love traveling and being in nature<br>Find me at events! The next one is listed below 👀</p>
-
-        <h2>Next Event</h2>
-        
-        <div id="next-event">
-            <div class="event-card loading-card"></div>
+    <section class="next-event" aria-labelledby="next-event-title">
+      <h2 id="next-event-title">Next Event</h2>
+      <div id="next-event" aria-live="polite">
+        <div class="event-card loading-card">
+          <div class="event-info">
+            <div class="event-title">Loading events...</div>
+          </div>
         </div>
-        <div class="event-button-container">
-            <a href="/events" class="show-events-btn">Show all events ➡️</a>
-        </div>
+      </div>
+      <div class="event-button-container">
+        <a href="/events/" click-statistics="more_events" class="show-events-btn">Show all events ➡️</a>
+      </div>
 
-        <h2>Socials</h2>
+      <footer class="photo-credit">
+        <a href="https://www.instagram.com/kink_storm/" click-statistics="photo_credits" target="_blank" rel="noopener noreferrer" aria-label="Photography credit: @kink_storm"> 📸 @kink_storm </a>
+      </footer>
 
-        <div class="socials">
-            <a href="https://www.instagram.com/pup_finny/" data-social="instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <!--
-            <a href="https://x.com/Finny_AD" data-social="twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://bsky.app/profile/finny.dog" data-social="bsky" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
-            -->
-            <a href="https://t.me/Finny_the_Husky" data-social="telegram" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-            <a href="https://tellonym.me/finny.dog/dontthink" data-social="tellonym" target="_blank"><img src="images/tellonym.png" class="social-icon"></a>
-        </div>
-
-    </div>
-    <script src="/js/javascript.js"></script>
-    <script>
-        async function loadNextEvent(){
-        const {upcoming}=await getEvents();
-        const container=document.getElementById("next-event");
-        if(!container || !upcoming.length) return;
-        container.innerHTML=createCard(upcoming[0]);
-        }
-
-        loadNextEvent();
-    </script>
-    </body>
+    </section>
+  </main>
+  <script src="js/javascript.js"></script>
+</body>
 </html>
