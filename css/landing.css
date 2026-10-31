@@ -406,7 +406,8 @@ body {
   }
 
   .next-event {
-    margin: 0;
+    margin-top: auto;
+    padding-top: 10px;
   }
 
   .next-event h2 {
@@ -659,4 +660,60 @@ body {
     height: 35px;
     object-fit: contain;
     border-radius: 5px;
+}
+
+/* Mobile layout: keep social links on the right and anchor the event section low */
+@media (max-width: 650px) {
+  body.home-page .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    height: auto;
+    padding-bottom: 76px;
+  }
+
+  body.home-page .next-event {
+    margin-top: auto;
+    position: relative;
+    top: 35px;
+  }
+
+  body.home-page .social-sidebar {
+    position: fixed !important;
+    top: 50% !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    width: auto !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateY(-50%) !important;
+  }
+
+  body.home-page .social-sidebar .social-link {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    flex: 0 0 48px !important;
+    border-radius: 12px 0 0 12px !important;
+  }
+
+  body.home-page .next-event {
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.home-page footer.photo-credit {
+    position: fixed;
+    right: 14px;
+    bottom: 10px;
+    z-index: 10000;
+  }
 }
