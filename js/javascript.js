@@ -1,14 +1,18 @@
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQO8fE_rxMOnosorZSTsmhScq8BLX38AQV4DXOJ5aahu2Bt9a8vjbEotgFhDx4iFe0BgCt9sL3c741O/pub?gid=0&single=true&output=csv";
 
-document.querySelectorAll('.socials a[data-social]').forEach(link => {
+document.querySelectorAll('[click-statistics]').forEach(link => {
     link.addEventListener('click', function () {
-        console.log('Social click:', this.dataset.social);
+        const clickName = this.getAttribute('click-statistics');
+
+        console.log('Tracked click:', clickName);
 
         if (typeof gtag === 'function') {
-            gtag('event', 'social_click', {
-                platform: this.dataset.social,
-                link_url: this.href
+            gtag('event', 'tracked_click', {
+                click_name: clickName,
+                link_url: this.href,
+                page_path: window.location.pathname
             });
+
             console.log('GA4 event sent');
         } else {
             console.error('Google Analytics gtag is not loaded');
